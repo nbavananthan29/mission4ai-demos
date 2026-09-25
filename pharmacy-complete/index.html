@@ -1,0 +1,471 @@
+<title>Grace for Pharmacy Complete</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --ink: #12181f;
+  --ink-soft: #45525f;
+  --ink-faint: #6b7884;
+  --line: #dde3e1;
+  --paper: #fbfcfb;
+  --panel: #ffffff;
+  --accent: #1d4f91;
+  --accent-strong: #163e73;
+  --accent-pale: #e3ecf7;
+  --on-accent: #ffffff;
+  --band-green: #e7eef7;
+  --band-green-line: #cddbee;
+  --band-warm: #f3f0eb;
+  --band-warm-line: #e4dfd6;
+  --box-green: #ffffff;
+  --box-warm: #fbfaf7;
+  --warn: #9a3a1c;
+  --warn-pale: #f8ebe5;
+  --sans: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ink: #e8eeec;
+    --ink-soft: #b4c1bd;
+    --ink-faint: #8a9894;
+    --line: #2a3533;
+    --paper: #0f1514;
+    --panel: #161e1c;
+    --accent: #7fb0ec;
+    --accent-strong: #a3c7f2;
+    --accent-pale: #1a2a40;
+    --on-accent: #06201a;
+    --band-green: #131c28;
+    --band-green-line: #22324a;
+    --band-warm: #1b1a17;
+    --band-warm-line: #2e2b25;
+    --box-green: #18243a;
+    --box-warm: #22201c;
+    --warn: #f0a07f;
+    --warn-pale: #2e1d16;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #e8eeec;
+  --ink-soft: #b4c1bd;
+  --ink-faint: #8a9894;
+  --line: #2a3533;
+  --paper: #0f1514;
+  --panel: #161e1c;
+  --accent: #7fb0ec;
+  --accent-strong: #a3c7f2;
+  --accent-pale: #1a2a40;
+  --on-accent: #06201a;
+  --band-green: #131c28;
+  --band-green-line: #22324a;
+  --band-warm: #1b1a17;
+  --band-warm-line: #2e2b25;
+  --box-green: #18243a;
+  --box-warm: #22201c;
+  --warn: #f0a07f;
+  --warn-pale: #2e1d16;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 16.5px/1.65 var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+/* every block is a full-width strip with a centred inner column */
+.strip { padding-inline: 20px; }
+.inner { max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+.strip.top { padding-block: 28px 0; }
+.strip.plain { padding-block: 44px; }
+.strip.band { padding-block: 44px 48px; }
+.strip.band.green { background: var(--band-green); border-block: 1px solid var(--band-green-line); }
+.strip.band.warm { background: var(--band-warm); border-block: 1px solid var(--band-warm-line); }
+.strip.gap { padding-block: 22px; }
+
+/* masthead */
+.mast {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 14px;
+}
+.brand { font: 600 15px/1 var(--sans); letter-spacing: .02em; }
+.brand span { color: var(--accent); }
+.prepared { font-size: 13.5px; color: var(--ink-faint); }
+
+/* intro */
+.intro { display: flex; flex-direction: column; gap: 14px; padding-top: 12px; }
+.eyebrow {
+  font: 600 12px/1 var(--sans);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+h1 {
+  font: 500 clamp(32px, 7vw, 44px)/1.1 var(--serif);
+  letter-spacing: -.01em;
+  margin: 0;
+  text-wrap: balance;
+}
+h1 .name {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 1.12em;
+}
+.lede { margin: 0; color: var(--ink-soft); font-size: 17.5px; max-width: 60ch; }
+
+/* the number */
+.dial {
+  background: var(--accent);
+  color: var(--on-accent);
+  border-radius: 18px;
+  padding: 22px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 16px;
+}
+.dial-left { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+.dial-label { font: 600 12px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; opacity: .9; }
+.grace-figure { width: 92px; height: 92px; display: block; }
+.dial-right { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; text-align: right; min-width: 0; }
+.dial-number {
+  font: 600 clamp(19px, 6.4vw, 44px)/1 var(--sans);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .01em;
+  color: var(--on-accent);
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: all;
+}
+.dial-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.btn {
+  appearance: none;
+  border: 1.5px solid currentColor;
+  background: transparent;
+  color: var(--on-accent);
+  font: 600 14.5px/1 var(--sans);
+  padding: 11px 15px;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.btn.solid { background: var(--on-accent); color: var(--accent-strong); border-color: var(--on-accent); }
+.dial-note { margin: 0; font-size: 14.5px; opacity: .92; }
+
+@media (max-width: 460px) {
+  .dial { padding: 18px 16px; gap: 12px; }
+  .grace-figure { width: 62px; height: 62px; }
+  .btn { padding: 10px 12px; font-size: 13.5px; }
+}
+
+/* section headings */
+h2 {
+  font: 500 clamp(26px, 5.6vw, 31px)/1.18 var(--serif);
+  margin: 0;
+  text-wrap: balance;
+}
+.head { display: flex; flex-direction: column; gap: 10px; }
+.section-lede { margin: 0; color: var(--ink-soft); max-width: 60ch; }
+
+/* scenarios */
+.tries { display: flex; flex-direction: column; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.try {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.try-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.try h3 { font: 600 17px/1.3 var(--sans); margin: 0; }
+.tag {
+  font: 600 11.5px/1 var(--sans);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-pale);
+  padding: 6px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.tag.hard { color: var(--warn); background: var(--warn-pale); }
+.say {
+  margin: 0;
+  font: italic 400 18px/1.45 var(--serif);
+  padding-left: 14px;
+  border-left: 2px solid var(--line);
+}
+.expect { margin: 0; color: var(--ink-soft); font-size: 15.5px; }
+.expect strong { color: var(--ink); font-weight: 600; }
+
+/* hours */
+.hours-title { font: 600 16px/1.3 var(--sans); margin: 8px 0 0; }
+.hours {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 16px;
+  font-size: 15.5px;
+  margin: 0;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+.hours dt { font-weight: 600; white-space: nowrap; }
+.hours dd { margin: 0; color: var(--ink-soft); }
+@media (max-width: 460px) {
+  .hours { grid-template-columns: 1fr; gap: 2px; }
+  .hours dd + dt { margin-top: 10px; }
+}
+
+/* outcome boxes */
+.after {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+.after div {
+  background: var(--box-green);
+  border: 1px solid var(--band-green-line);
+  border-radius: 12px;
+  padding: 16px;
+}
+.after h3 { font: 600 15.5px/1.3 var(--sans); margin: 0 0 6px; }
+.after p { margin: 0; font-size: 15px; color: var(--ink-soft); }
+
+/* next */
+.next { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; }
+.next li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 0;
+  border-top: 1px solid var(--band-warm-line);
+}
+.next li:last-child { border-bottom: 1px solid var(--band-warm-line); }
+.next h3 { font: 600 16.5px/1.3 var(--sans); margin: 0; }
+.next p { margin: 0; color: var(--ink-soft); font-size: 15.5px; }
+
+/* close */
+.close {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.close p { margin: 0; }
+.sig { font: italic 500 21px/1.2 var(--serif); color: var(--accent); }
+
+footer { font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; border-top: 1px solid var(--line); padding-top: 16px; }
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: var(--paper);
+  font: 600 14px/1 var(--sans);
+  padding: 12px 16px;
+  border-radius: 999px;
+}
+</style>
+
+<div class="strip top">
+  <div class="inner">
+    <header class="mast">
+      <div class="brand">Mission<span>4</span>AI</div>
+      <div class="prepared">Prepared for Pharmacy Complete · 25 September 2026</div>
+    </header>
+
+    <div class="intro">
+      <p class="eyebrow">Pharmacy Complete · live demo</p>
+      <h1>Meet <span class="name">Grace</span>, who answers for all three branches.</h1>
+      <p class="lede">Grace answers one number for Stroud Road, Matson and Alvechurch. She knows each branch's hours and services, takes prescription and booking requests the way your counter team would, and never gives medical advice. Ring her from your own mobile, as a patient would.</p>
+    </div>
+
+    <div class="dial" aria-label="Demo phone number">
+      <div class="dial-left">
+        <div class="dial-label">Ring Grace</div>
+        <svg class="grace-figure" viewBox="0 0 96 96" role="img" aria-label="Side view of a receptionist wearing a headset">
+          <!-- head, hair and shoulders, one solid silhouette facing right -->
+          <path fill="currentColor" d="M45 13C58 12 66 20 66 31L67 37C67 39 68 41 71 45L70 47L67 48L68 51L66 53L67 55L65 57C65 60 63 62 59 62L55 62C54 65 54 68 55 71C66 74 78 80 82 96L14 96C16 84 24 76 34 72C36 66 34 60 30 54C24 44 27 16 45 13Z"/>
+          <!-- ponytail -->
+          <path fill="currentColor" d="M31 33C20 34 15 45 18 58C22 54 27 50 30 45Z"/>
+          <!-- headset band, ear cup and microphone, cut out in the box colour -->
+          <path d="M42 37C41 23 49 15 59 17" fill="none" stroke="var(--accent)" stroke-width="3.4" stroke-linecap="round"/>
+          <rect x="37" y="36" width="10" height="15" rx="5" fill="var(--accent)"/>
+          <path d="M43 50C46 57 53 59 60 57" fill="none" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/>
+          <circle cx="61.5" cy="56.5" r="2.6" fill="var(--accent)"/>
+        </svg>
+      </div>
+      <div class="dial-right">
+        <a class="dial-number" href="tel:+441218190228" id="number">0121 819 0228</a>
+        <div class="dial-actions">
+          <a class="btn solid" href="tel:+441218190228">Call now</a>
+          <button class="btn" type="button" id="copy">Copy number</button>
+        </div>
+        <p class="dial-note">Any time, day or night.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="strip plain">
+  <section class="inner" aria-labelledby="try-h">
+    <div class="head">
+      <p class="eyebrow">Try it</p>
+      <h2 id="try-h">Put Grace to the test</h2>
+      <p class="section-lede">Four scenarios to try. Say them in your own words, interrupt her, or change your mind halfway through.</p>
+    </div>
+    <ul class="tries">
+      <li class="try">
+        <div class="try-head"><h3>Order a repeat prescription</h3><span class="tag">Request</span></div>
+        <p class="say">"I need to order my repeat prescription from Alvechurch."</p>
+        <p class="expect"><strong>What she'll do:</strong> take your name, date of birth and each medicine exactly as you say it, read it all back, and pass it to the Alvechurch team.</p>
+      </li>
+      <li class="try">
+        <div class="try-head"><h3>A price, and a stock question</h3><span class="tag">Information</span></div>
+        <p class="say">"How much is a packet of paracetamol, and have you got hay fever tablets in?"</p>
+        <p class="expect"><strong>What she'll do:</strong> give the price from the list, then say plainly that she can't see the shelf and take a request so the branch rings you back.</p>
+      </li>
+      <li class="try">
+        <div class="try-head"><h3>Book a flu jab</h3><span class="tag">Booking</span></div>
+        <p class="say">"Can I book a flu jab at Stroud Road next week?"</p>
+        <p class="expect"><strong>What she'll do:</strong> take your details and the days that suit you, and tell you the branch will confirm the time. She never invents a slot she can't see.</p>
+      </li>
+      <li class="try">
+        <div class="try-head"><h3>The hard calls</h3><span class="tag hard">Safety</span></div>
+        <p class="say">"Can I take ibuprofen with my blood pressure tablets?" or "My dad's got chest pain after taking his tablets."</p>
+        <p class="expect"><strong>What she'll do:</strong> never answer a clinical question herself. She offers the pharmacist when the branch is open, a pharmacist callback and NHS 111 when it's closed, and sends an emergency straight to 999.</p>
+      </li>
+    </ul>
+
+    <h3 class="hours-title">She knows which branch is open</h3>
+    <dl class="hours">
+      <dt>Branch open</dt>
+      <dd>Offers to put the caller through to the pharmacist. For this demo, that puts you through to our team.</dd>
+      <dt>Branch closed</dt>
+      <dd>Takes the request and tells the caller which day that branch will pick it up. Alvechurch's lunch hour counts as closed.</dd>
+    </dl>
+  </section>
+</div>
+
+<div class="strip band green">
+  <section class="inner" aria-labelledby="after-h">
+    <div class="head">
+      <p class="eyebrow">The outcome</p>
+      <h2 id="after-h">What happens after each call</h2>
+    </div>
+    <div class="after">
+      <div>
+        <h3>A request, logged</h3>
+        <p>Branch, name, number, what it's about and how urgent, as one row in a request sheet your team works from.</p>
+      </div>
+      <div>
+        <h3>An email to the branch</h3>
+        <p>The same request lands in an inbox straight away. At a real install each branch gets its own. During the demo it comes to us.</p>
+      </div>
+      <div>
+        <h3>A full call record</h3>
+        <p>A short summary, the transcript and the recording of every call, whether or not a request was made.</p>
+      </div>
+    </div>
+    <p class="section-lede">After you've tried her, we'll send you the record of your own calls so you can see exactly what each branch would receive.</p>
+  </section>
+</div>
+
+<div class="strip gap" aria-hidden="true"></div>
+
+<div class="strip band warm">
+  <section class="inner" aria-labelledby="next-h">
+    <div class="head">
+      <p class="eyebrow">What's next</p>
+      <h2 id="next-h">Where Grace can go next</h2>
+      <p class="section-lede">This is the receptionist at its first level: answer, inform, take the request, pass it on. It needs no change to your systems. The next steps are specific to Pharmacy Complete.</p>
+    </div>
+    <ul class="next">
+      <li>
+        <h3>Put calls through to the right branch</h3>
+        <p>One transfer per branch, so a Matson caller who wants a person reaches Matson's counter rather than a central line.</p>
+      </li>
+      <li>
+        <h3>Reply by text</h3>
+        <p>"Is my prescription ready?" answered by a text from the team, so nobody has to ring anyone back.</p>
+      </li>
+      <li>
+        <h3>Talk to Grace on your website</h3>
+        <p>A button on pharmacycomplete.co.uk that starts a voice conversation with Grace in the browser, with no phone call needed.</p>
+      </li>
+      <li>
+        <h3>Your own prices</h3>
+        <p>The price list in this demo is a stand-in. Grace switches to your prices the day you send them.</p>
+      </li>
+    </ul>
+  </section>
+</div>
+
+<div class="strip plain">
+  <div class="inner">
+    <div class="close">
+      <p>Try her whenever suits you, then reply to the message this link came in with what you thought, the good and the bad. We'll ring you to talk it through.</p>
+      <p class="sig">The Mission4AI team</p>
+    </div>
+
+    <footer>
+      Grace is a demonstration built by Mission4AI for Pharmacy Complete. It uses details from pharmacycomplete.co.uk, a stand-in price list, and is not connected to the pharmacy's own systems. Please use made-up details rather than real patient information when testing.<br>
+      Mission4AI is the trading name of @4 A Mission Ltd, company number 14218216, registered in England and Wales.
+    </footer>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden>Number copied</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('copy');
+  var toast = document.getElementById('toast');
+  var timer;
+  function show(msg) {
+    toast.textContent = msg;
+    toast.hidden = false;
+    clearTimeout(timer);
+    timer = setTimeout(function () { toast.hidden = true; }, 1800);
+  }
+  function selectNumber() {
+    var r = document.createRange();
+    r.selectNodeContents(document.getElementById('number'));
+    var s = window.getSelection();
+    s.removeAllRanges();
+    s.addRange(r);
+  }
+  btn.addEventListener('click', function () {
+    try {
+      navigator.clipboard.writeText('01218190228').then(function () {
+        show('Number copied');
+      }, function () { selectNumber(); show('Number selected, copy it from here'); });
+    } catch (e) { selectNumber(); show('Number selected, copy it from here'); }
+  });
+})();
+</script>
