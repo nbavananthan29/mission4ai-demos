@@ -321,9 +321,9 @@ footer { font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; border-to
         </svg>
       </div>
       <div class="dial-right">
-        <a class="dial-number" href="tel:+441218190003" id="number">0121 819 0003</a>
+        <a class="dial-number" href="tel:+441218190125" id="number">0121 819 0125</a>
         <div class="dial-actions">
-          <a class="btn solid" href="tel:+441218190003">Call now</a>
+          <a class="btn solid" href="tel:+441218190125">Call now</a>
           <button class="btn" type="button" id="copy">Copy number</button>
         </div>
         <p class="dial-note">Any time, day or night.</p>
@@ -462,7 +462,7 @@ footer { font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; border-to
   }
   btn.addEventListener('click', function () {
     try {
-      navigator.clipboard.writeText('01218190003').then(function () {
+      navigator.clipboard.writeText('01218190125').then(function () {
         show('Number copied');
       }, function () { selectNumber(); show('Number selected, copy it from here'); });
     } catch (e) { selectNumber(); show('Number selected, copy it from here'); }
