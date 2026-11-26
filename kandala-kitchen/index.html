@@ -302,7 +302,7 @@ footer { font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; border-to
     <div class="intro">
       <p class="eyebrow">Kandala Kitchen · live demo</p>
       <h1>Meet <span class="name">Grace</span>, who answers while the kitchen is busy.</h1>
-      <p class="lede">Grace answers the phone for Kandala Kitchen, a demo restaurant. She books tables by the restaurant's own rules, answers the questions that tie up front of house, and passes food orders straight to the order line. Ring her the way a customer would.</p>
+      <p class="lede">Grace answers the phone for Kandala Kitchen, a demo restaurant. She books tables by the restaurant's own rules, answers the questions that tie up front of house, and passes food orders straight to the order line. Ring 0121 819 0003, ask Maya for the restaurant, then talk to Grace the way a customer would.</p>
     </div>
 
     <div class="dial" aria-label="Demo phone number">
@@ -321,12 +321,12 @@ footer { font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; border-to
         </svg>
       </div>
       <div class="dial-right">
-        <a class="dial-number" href="tel:+441218190125" id="number">0121 819 0125</a>
+        <a class="dial-number" href="tel:+441218190003" id="number">0121 819 0003</a>
         <div class="dial-actions">
-          <a class="btn solid" href="tel:+441218190125">Call now</a>
+          <a class="btn solid" href="tel:+441218190003">Call now</a>
           <button class="btn" type="button" id="copy">Copy number</button>
         </div>
-        <p class="dial-note">She answers any time. Tables book only while the restaurant is open.</p>
+        <p class="dial-note">Maya, our own receptionist, answers first. Ask her for the restaurant and she puts you through to Grace.</p>
       </div>
     </div>
   </div>
@@ -462,7 +462,7 @@ footer { font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; border-to
   }
   btn.addEventListener('click', function () {
     try {
-      navigator.clipboard.writeText('01218190125').then(function () {
+      navigator.clipboard.writeText('01218190003').then(function () {
         show('Number copied');
       }, function () { selectNumber(); show('Number selected, copy it from here'); });
     } catch (e) { selectNumber(); show('Number selected, copy it from here'); }
